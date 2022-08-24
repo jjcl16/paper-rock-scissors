@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log("Hola mundo");
+        const computerOptions = ["rock","paper","scissors"];
+
+        function getComputerChoice(){
+            let randomNumer = Math.floor(Math.random()*3);
+            return computerOptions[randomNumer];
+        }
+
+        function playRound(playerSelection, computerSelection ){
+            let whoWins = ""; 
+            playerSelection = playerSelection.toLowerCase();
+            switch(playerSelection){
+                case "rock":
+                    whoWins = (computerSelection == "rock") ? "TIE" :
+                    (computerSelection == "paper") ? "CPU" :
+                    (computerSelection == "scissors") ? "PLAYER": "error";
+                break;
+
+                case "paper":
+                whoWins = (computerSelection == "paper") ? "TIE" :
+                    (computerSelection == "scissors") ? "CPU" :
+                    (computerSelection == "rock") ? "PLAYER": "error";
+                break;
+
+                case "scissors":
+                    whoWins = (computerSelection == "paper") ? "PLAYER" :
+                    (computerSelection == "scissors") ? "TIE" :
+                    (computerSelection == "rock") ? "CPU": "error";
+                break;
+                
+                default:
+                    whoWins = "Wrong Selection";
+                break;
+            }
+            return whoWins;
+        }
+
+        function printRoundWinner(whoWins, playerSelection,  computerSelection){
+            (whoWins == "CPU") ? console.log(`You Lose! ${computerSelection} beats ${playerSelection}`) : 
+            (whoWins == "PLAYER") ? console.log(`You Win! ${playerSelection} beats ${computerSelection}`) : 
+            console.log("TIE");
+        }
+
+        function printWinner(playerPoints, computerPoints, ties){
+            (playerPoints > computerPoints) ? console.log(`Player Wins! ${playerPoints} - ${computerPoints}. Ties: ${ties}`) : 
+            console.log(`Player Lose! ${playerPoints} - ${computerPoints}. Ties: ${ties}`);
+        }
+
+        function game(){
+            let playerPoints = 0;
+            let computerPoints = 0;
+            let ties = 0;
+            let whoWins= "";
+            for (i=0; i< 5; i++){
+                let playerSelection = prompt("Choose: Paper, Rock, Scissors?");
+                let computerSelection = getComputerChoice();
+                whoWins = playRound(playerSelection, computerSelection );
+                (whoWins == "CPU") ? computerPoints++ : 
+                (whoWins == "PLAYER") ? playerPoints++ : 
+                (whoWins == "TIE") ? ties++:
+                console.log("Error");
+                printRoundWinner(whoWins, playerSelection,  computerSelection);
+            }
+            printWinner(playerPoints, computerPoints, ties);
+
+        }
+
+        game();
+
+    </script>
+</body>
+</html>

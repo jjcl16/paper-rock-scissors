@@ -4,79 +4,66 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style-img/style.css">
+    
     <title>Document</title>
 </head>
 <body>
-    <script>
-        console.log("Hola mundo");
-        const computerOptions = ["rock","paper","scissors"];
+    <div class="header">
 
-        function getComputerChoice(){
-            let randomNumer = Math.floor(Math.random()*3);
-            return computerOptions[randomNumer];
-        }
+        <div class="name">
+            <p>ROCK - PAPER - SCISSORS</p>
+        </div>
+        <div class="logo">
+            <img src="./style-img/Logo.png" width="500px" height="auto">
+        </div>
 
-        function playRound(playerSelection, computerSelection ){
-            let whoWins = ""; 
-            playerSelection = playerSelection.toLowerCase();
-            switch(playerSelection){
-                case "rock":
-                    whoWins = (computerSelection == "rock") ? "TIE" :
-                    (computerSelection == "paper") ? "CPU" :
-                    (computerSelection == "scissors") ? "PLAYER": "error";
-                break;
+    </div>
 
-                case "paper":
-                whoWins = (computerSelection == "paper") ? "TIE" :
-                    (computerSelection == "scissors") ? "CPU" :
-                    (computerSelection == "rock") ? "PLAYER": "error";
-                break;
+    <div class="buttons">
+        <div class="buttonBox">
+            <button class="rock">
+                <img src="./style-img/rock.png" width="140px" height="auto" class="selections" id="rock">
+            </button>
+            <div class="selection">ROCK</div>
+        </div>
 
-                case "scissors":
-                    whoWins = (computerSelection == "paper") ? "PLAYER" :
-                    (computerSelection == "scissors") ? "TIE" :
-                    (computerSelection == "rock") ? "CPU": "error";
-                break;
-                
-                default:
-                    whoWins = "Wrong Selection";
-                break;
-            }
-            return whoWins;
-        }
+        <div class="buttonBox">
+            <button class="paper">
+                <img src="./style-img/paper.png" width="140px" height="auto" class="selections" id="paper">
+            </button>
+            <div class="selection">PAPER</div>
+        </div>
 
-        function printRoundWinner(whoWins, playerSelection,  computerSelection){
-            (whoWins == "CPU") ? console.log(`You Lose! ${computerSelection} beats ${playerSelection}`) : 
-            (whoWins == "PLAYER") ? console.log(`You Win! ${playerSelection} beats ${computerSelection}`) : 
-            console.log("TIE");
-        }
+        <div class="buttonBox">
+            <button class="scissors">
+                <img src="./style-img/scissors.png" width="140px" height="auto" class="selections" id="scissors">
+            </button>
+            <div class="selection">SCISSORS</div>
+        </div>
 
-        function printWinner(playerPoints, computerPoints, ties){
-            (playerPoints > computerPoints) ? console.log(`Player Wins! ${playerPoints} - ${computerPoints}. Ties: ${ties}`) : 
-            console.log(`Player Lose! ${playerPoints} - ${computerPoints}. Ties: ${ties}`);
-        }
+    </div>
 
-        function game(){
-            let playerPoints = 0;
-            let computerPoints = 0;
-            let ties = 0;
-            let whoWins= "";
-            for (i=0; i< 5; i++){
-                let playerSelection = prompt("Choose: Paper, Rock, Scissors?");
-                let computerSelection = getComputerChoice();
-                whoWins = playRound(playerSelection, computerSelection );
-                (whoWins == "CPU") ? computerPoints++ : 
-                (whoWins == "PLAYER") ? playerPoints++ : 
-                (whoWins == "TIE") ? ties++:
-                console.log("Error");
-                printRoundWinner(whoWins, playerSelection,  computerSelection);
-            }
-            printWinner(playerPoints, computerPoints, ties);
+    <div class="results">
+        <div class="matchResults">
+            
+        </div>
 
-        }
+        <div class="howWins">
+            
+        </div>
+        <div><button class="restart">Restart Game</button></div>
+        
+    </div>
+    
+    
 
-        game();
+    <div class="footer">Hola</div>
+    
+     
 
-    </script>
+            <script src="./app/game.js"></script>
+            <!-- -->
+
 </body>
 </html>

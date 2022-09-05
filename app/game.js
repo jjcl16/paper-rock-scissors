@@ -3,10 +3,12 @@ const buttonsToPlay = document.querySelectorAll('button .selections');
 const matchResultString =  document.querySelector('.matchResults');
 const gameResultString = document.querySelector('.howWins');
 const buttonRestart = document.querySelector('.restart');
+const matchesPlayed = document.querySelector('.matches');
 
 let cpuPoints=0;
 let userPoints=0;
 let ties=0;
+let matches=0;
 let whoWinsLastMatch;
 let lastMatchResult;
 
@@ -17,17 +19,20 @@ buttonsToPlay.forEach((button) => {
 buttonRestart.addEventListener('click', restart);
 
 function restart(){
-    matchResultString.textContent = "";
-    gameResultString.textContent = "";
+    matchResultString.textContent = "Results:";
+    gameResultString.textContent = "Last Match result:";
+    matchesPlayed.textContent = "Matches Played:"
     cpuPoints=0;
     userPoints=0;
     ties=0;
+    matches = 0;
 }
 
 
 function play(e){
     
-    console.log(this.id);
+    //console.log(this.id);
+    matches++;
     let Userselection = this.id;
 
     whoWinsLastMatch = playRound(Userselection, getComputerChoice());
@@ -40,6 +45,7 @@ function play(e){
     matchResultString.textContent = `Player ${userPoints} vs ${cpuPoints} CPU` ;
     lastMatchResult = (whoWinsLastMatch != "tie") ? `${whoWinsLastMatch} win` : "tie" ;
     gameResultString.textContent = `Last Match was a ${lastMatchResult}`;
+    matchesPlayed.textContent = `Matches Played: ${matches}`
     //console.log(playRound("ROCK",getComputerChoice()));
 
 }

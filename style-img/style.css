@@ -16,6 +16,7 @@ body {
     background-color: grey;
     margin:0px;
     padding: 5px 0px 10px 0px;
+    font-weight: bolder;
     
 }
 
@@ -40,6 +41,12 @@ body {
     align-items: center;
     padding: 5px;
 }
+.buttonBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 
 .rock , .paper , .scissors{
     display: flex;
@@ -51,6 +58,7 @@ body {
     box-shadow: 4px 4px lightgrey;
     width: 205px;
     height: 205px;
+    margin: 0px;
 }
 
 .results{
@@ -59,6 +67,7 @@ body {
     align-items: center;
     justify-content: space-around;
     padding: 10px;
+    height: 50px;
 }
 
 .footer{
@@ -77,10 +86,27 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 50px;
+    border-radius: 25px;
     background-color: grey;
     border-width: 1.5px;
     box-shadow: 4px 4px lightgrey;
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 60px;
+    font-weight: bold;
+}
+
+.restartButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.matchResults , .howWins, .matches{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    padding-bottom: 10px;
 }
